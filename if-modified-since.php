@@ -9,9 +9,10 @@ use Server;
 class IfModifiedSince extends Response {
   
   public function make($response) {
-    if(!is_a($response, 'Page')) return;
-    if(!in_array($response->template(), c::get('ifmodifiedsince.ignore', array()))) {
-      $this->respond($response->modified());
+    if(is_a($response, 'Page')) {
+      if(!in_array($response->template(), (array)c::get('ifmodifiedsince.ignore'))) {
+        $this->respond($response->modified());
+      }
     }
     return parent::make($response);
   }
