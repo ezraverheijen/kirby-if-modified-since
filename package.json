@@ -1,0 +1,8 @@
+{
+  "name": "kirby-if-modified-since",
+  "description": "Kirby plugin that handles the If-Modified-Since HTTP header functionality",
+  "author": "Ezra Verheijen <ezra.verheijen@gmail.com>",
+  "version": "1.0.0",
+  "type": "kirby-plugin",
+  "license": "MIT"
+}
