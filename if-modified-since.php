@@ -1,4 +1,5 @@
 <?php
+
 namespace EzraVerheijen\Plugins;
 
 use C;
@@ -10,7 +11,7 @@ class IfModifiedSince extends Response {
   
   public function make($response) {
     if(is_a($response, 'Page')) {
-      if(!in_array($response->template(), (array)c::get('ifmodifiedsince.ignore'))) {
+      if(!$response->isErrorPage() && !in_array($response->template(), (array)c::get('ifmodifiedsince.ignore'))) {
         $this->respond($response->modified());
       }
     }
