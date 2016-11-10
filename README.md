@@ -37,6 +37,7 @@ If you know your way around Git, you can download this plugin as a submodule:
 ```
 $ cd path/to/kirby
 $ git submodule add https://github.com/ezraverheijen/kirby-if-modified-since.git site/plugins/if-modified-since
+$ git submodule update --init --recursive
 ```
 
 ## Setup
