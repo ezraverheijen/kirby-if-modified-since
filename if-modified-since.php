@@ -19,9 +19,11 @@ class IfModifiedSince extends Response {
   
   protected function respond($mtime) {
     if($mtime === false) return;
-    if($ims = server::get('http_if_modified_since') && strtotime($ims) >= $mtime) {
-      header::status(304);
-      exit;
+    if($ims = server::get('HTTP_IF_MODIFIED_SINCE')) {
+      if(strtotime($ims) >= $mtime) {
+        header::status(304);
+        exit;
+      }
     } else {
       header('Last-Modified: ' . gmdate('D, d M Y H:i:s', $mtime) . ' GMT');
     }
