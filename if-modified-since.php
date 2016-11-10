@@ -2,7 +2,10 @@
 
 namespace EzraVerheijen\Plugins;
 
+require __DIR__ . DS . 'if-modified-since' . DS . 'if-modified-since.php';
+
 use C;
+use EzraVerheijen\Classes\IfModifiedSince;
 use Header;
 use Kirby\Component\Response;
 use Server;
@@ -12,22 +15,15 @@ class IfModifiedSince extends Response {
   public function make($response) {
     if(is_a($response, 'Page')) {
       if(!$response->isErrorPage() && !in_array($response->template(), (array)c::get('ifmodifiedsince.ignore'))) {
-        $this->respond($response->modified());
+        try {
+          new IfModifiedSince($response->modified());
+        } catch(Exception $e) {
+          // I don't think this could normally happen,
+          // but if it would, there is not much we can do about it here...
+        }
       }
     }
     return parent::make($response);
-  }
-  
-  protected function respond($mtime) {
-    if($mtime === false) return;
-    if($ims = server::get('HTTP_IF_MODIFIED_SINCE')) {
-      if(strtotime($ims) >= $mtime) {
-        header::status(304);
-        exit;
-      }
-    } else {
-      header('Last-Modified: ' . gmdate('D, d M Y H:i:s', $mtime) . ' GMT');
-    }
   }
   
 }
