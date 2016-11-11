@@ -46,12 +46,11 @@ No additional setup needed. All your pages should now respond to incoming 'If Mo
 
 ## Options
 
-If you want, you can ignore pages with specific templates from the 'If Modified Since response'.
-For instance, if you use templates for your XML sitemap, robots.txt file or any other custom template that does not represent a 'normal' content page.
+If you want, you can ignore pages with specific templates from the 'If-Modified-Since response'.
 In your `/site/config/config.php` file, put the template names in the plugin's ignore array like this:
 
 ```php
-c::set('ifmodifiedsince.ignore', array('sitemap', 'robots', 'feed'));
+c::set('ifmodifiedsince.ignore', array('api', 'hidden', 'feed'));
 ```
 
 ## Changelog
