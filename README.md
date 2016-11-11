@@ -47,7 +47,6 @@ No additional setup needed. All your pages should now respond to incoming 'If Mo
 ## Options
 
 If you want, you can ignore pages with specific templates from the 'If-Modified-Since response'.
-
 In your `/site/config/config.php` file, put the template names in the plugin's ignore array like this:
 
 ```php
