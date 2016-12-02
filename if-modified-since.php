@@ -5,7 +5,7 @@ namespace EzraVerheijen\Plugins;
 require __DIR__ . DS . 'if-modified-since' . DS . 'if-modified-since.php';
 
 use C;
-use EzraVerheijen\Classes\IfModifiedSince;
+use EzraVerheijen\Classes\IfModifiedSince as IMS;
 use Header;
 use Kirby\Component\Response;
 use Server;
@@ -16,7 +16,7 @@ class IfModifiedSince extends Response {
     if(is_a($response, 'Page')) {
       if(!$response->isErrorPage() && !in_array($response->template(), (array)c::get('ifmodifiedsince.ignore'))) {
         try {
-          new IfModifiedSince($response->modified());
+          new IMS($response->modified());
         } catch(Exception $e) {
           // I don't think this could normally happen,
           // but if it would, there is not much we can do about it here...
