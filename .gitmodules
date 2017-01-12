@@ -1,3 +1,0 @@
-[submodule "if-modified-since"]
-	path = if-modified-since
-	url = https://github.com/ezraverheijen/if-modified-since.git
