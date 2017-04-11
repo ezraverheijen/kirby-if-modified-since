@@ -1,8 +1,8 @@
 # Kirby If-Modified-Since
 
-![Version](https://img.shields.io/badge/version-2.0.0-green.svg) ![License](https://img.shields.io/badge/license-MIT-green.svg) ![Kirby Version](https://img.shields.io/badge/Kirby-2.3%2B-red.svg)
+![Version](https://img.shields.io/badge/version-2.1.0-green.svg) ![License](https://img.shields.io/badge/license-MIT-green.svg) ![Kirby Version](https://img.shields.io/badge/Kirby-2.3%2B-red.svg)
 
-*Version 2.0.0*
+*Version 2.1.0*
 
 Kirby plugin that handles the If-Modified-Since HTTP header functionality as described [here](https://varvy.com/ifmodified.html).
 
@@ -55,6 +55,10 @@ c::set('ifmodifiedsince.ignore', array('api', 'hidden', 'feed'));
 ```
 
 ## Changelog
+
+**2.1.0**
+
+- Code improvements
 
 **2.0.0**
 
